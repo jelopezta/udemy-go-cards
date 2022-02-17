@@ -48,6 +48,8 @@ func newDeckFromFile(filename string) deck {
 		fmt.Println("Error:", err)
 		os.Exit(-1)
 	}
-	fmt.Println(byteSlice)
-	return newDeck()
+
+	s := string(byteSlice)
+	slice := strings.Split(s, ",")
+	return deck(slice)
 }
