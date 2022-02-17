@@ -7,4 +7,7 @@ func main() {
 
 	fmt.Println(cards.toString())
 	cards.saveToFile("my_cards")
+
+	savedCards := newDeckFromFile("yeah")
+	fmt.Println(savedCards)
 }
