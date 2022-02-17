@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"math/rand"
 	"os"
 	"strings"
 )
@@ -52,4 +53,13 @@ func newDeckFromFile(filename string) deck {
 	s := string(byteSlice)
 	slice := strings.Split(s, ",")
 	return deck(slice)
+}
+
+func (d deck) shuffle() {
+	for i := range d {
+		newPosition := rand.Intn(len(d) - 1)
+
+		// is this a language feature exclusevely for swapping vars?
+		d[i], d[newPosition] = d[newPosition], d[i]
+	}
 }
